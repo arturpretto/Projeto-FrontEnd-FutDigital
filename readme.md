@@ -1,32 +1,25 @@
-PROJETO 3: FRONTEND (Portal do Aluno) <br>
-Nome: Portal do Estudante - RevisãoOnline <br>
-Objetivo: Interface onde o estudante envia textos e visualiza graficamente seu desempenho.
-📅 <br>
-Cronograma e Sprints (Frontend) <br>
-Mês 1: Onboarding e Perfil <br>
-• Foco: O aluno entra e configura sua "casa". <br>
-• Entregáveis (Git): <br>
-• [ ] Setup: Vite + React Router Dom. <br>
-• [ ] Telas de Acesso: Login e Cadastro (com validação de campos). <br>
-• [ ] Tela de Perfil: Formulário onde ele escolhe o curso dos sonhos (Select box: 
-Medicina, Direito, Engenharia). Isso define o "tema" do dashboard. <br>
-• [ ] Componente de Proteção: Rota privada que só acessa com Token. <br>
-Mês 2: Sala de Redação<br>
-• Foco: Ação principal de estudar. <br>
-• Entregáveis (Git): <br>
-• [ ] Lista de Redações: Card para cada redação enviada. <br>
-• Visual: Badge Amarelo para "Em Correção" e Verde para "Corrigida (Nota: 
-920)". <br>
-• [ ] Nova Redação: Formulário com campo de Título, Tema e um Textarea grande 
-para digitar o texto. <br>
-• [ ] Integração: Conectar com o POST /essays da API. <br>
-• [ ] Feedback Visual: Toast de sucesso ao enviar. <br>
-Mês 3: Dashboard de Evolução <br>
-• Foco: Retenção e gamificação. <br>
-• Entregáveis (Git): <br>
-• [ ] Gráfico de Linha: Consumir a API para mostrar a evolução das notas nas últimas 
-5 redações. <br>
-• [ ] Card de Meta: Mostrar visualmente o quão longe ele está da nota de corte (Ex: 
-Uma barra de progresso "850/900"). <br>
-• [ ] Responsividade: Garantir que o aluno consiga ver a nota pelo celular. <br>
-• [ ] Deploy na Vercel: Link funcional
+PROJETO 2: FRONTEND (Marketplace Web) <br>
+Nome: Plataforma Web de Contratação de Serviços <br>
+Objetivo: Interface onde o cliente navega na vitrine e contrata, e o admin gerencia os pedidos. <br>
+📅Cronograma e Sprints (Frontend) <br> <br>
+Mês 1: Estrutura e Vitrine <br>
+    • Foco: Exibição dos serviços para o cliente. <br>
+    • Entregáveis (Git): <br>
+    • [ ] Setup do projeto React (Vite). <br>
+    • [ ] Configuração de Rotas: /, /login, /admin, /meus-pedidos. <br>
+    • [ ] Tela Home (Vitrine): Grid de cards consumindo GET /services. <br>
+    • [ ] Tela de Detalhes: Ao clicar no card, abre página com descrição completa e preço. <br> <br>
+Mês 2: Fluxo de Compra e Usuário <br>
+    • Foco: Transformar visitante em cliente. <br>
+    • Entregáveis (Git): <br>
+    • [ ] Login/Registro: Telas integradas com a API. <br>
+    • [ ] Checkout (Modal ou Tela): Formulário onde o usuário escolhe a data/detalhes e clica em "Contratar". <br>
+    • [ ] Meus Pedidos: Lista para o cliente acompanhar o status (ex: "Aguardando Aprovação"). <br>
+    • [ ] Validação Visual: Exibir erro se tentar agendar sem estar logado. <br> <br>
+Mês 3: Painel Administrativo e Deploy <br>
+    • Foco: Gestão do negócio. <br>
+    • Entregáveis (Git): <br>
+    • [ ] Dashboard Admin: Tabela com todos os pedidos recentes. <br>
+    • [ ] Ações do Admin: Botões para "Aprovar" ou "Recusar" pedido (Consumindo PUT). <br>
+    • [ ] Dashboard Gráfico: Cards com "Faturamento Total" (vindo da API). <br>
+    • [ ] Deploy na Vercel: Projeto publicado conectado ao Backend. 
