@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 :root {
-  --bg-dark: oklch(0.1 0 264);
+  --bg-dark: oklch(0.16 0 264);
   --bg: oklch(0.2 0 264);
   --bg-light: oklch(0.3 0 264);
 
@@ -32,12 +32,14 @@ body.light {
   --shadow-light-l: 0 15px 25px #0000000d, 0 20px 40px #00000008;
 }
 
-body {
+* {
+  box-sizing: border-box;
   font-family: "Inconsolata", monospace;
+}
+
+body {
   background-color: var(--bg-dark);
   color: var(--text);
-  margin: 0;
-  box-sizing: border-box;
 }
 
 a {
@@ -55,7 +57,6 @@ input {
   width: 100%;
   color: var(--text);
   margin-bottom: 5%;
-  box-sizing: border-box;
 }
 
 input::placeholder {
@@ -84,8 +85,13 @@ button:hover {
 
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 10dvh;
   align-items: center;
   padding-right: 2%;
+  padding-left: 2%;
+}
+
+nav {
+  min-width: 90%;
 }

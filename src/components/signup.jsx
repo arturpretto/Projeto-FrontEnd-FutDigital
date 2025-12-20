@@ -10,6 +10,9 @@ export default function Signup() {
     return (
         <>
             <header>
+                <nav>
+                    <Link to='/services'><button className={styles.navBtn}>HOME</button></Link>
+                </nav>
                 <Power className={styles.power} onClick={mode} />
             </header>
             <div className={styles.bg}>
