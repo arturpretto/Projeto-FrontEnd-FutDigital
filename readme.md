@@ -8,7 +8,7 @@ Mês 1: Estrutura e Vitrine <br>
     • [✅] Setup do projeto React (Vite). <br>
     • [✅] Configuração de Rotas: /, /login, /admin, /meus-pedidos. <br>
     • [✅] Tela Home (Vitrine): Grid de cards consumindo GET /services. <br>
-    • [ ] Tela de Detalhes: Ao clicar no card, abre página com descrição completa e preço. <br> <br>
+    • [✅] Tela de Detalhes: Ao clicar no card, abre página com descrição completa e preço. <br> <br>
 Mês 2: Fluxo de Compra e Usuário <br>
     • Foco: Transformar visitante em cliente. <br>
     • Entregáveis (Git): <br>
