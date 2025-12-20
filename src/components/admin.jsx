@@ -2,7 +2,7 @@ import styles from '../styles/App.module.css'
 import { Power } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-export default function Details() {
+export default function Admin() {
     const mode = () => {
         document.body.classList.toggle('light')
     }

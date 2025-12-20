@@ -37,6 +37,7 @@ body {
   background-color: var(--bg-dark);
   color: var(--text);
   margin: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -51,7 +52,7 @@ input {
   border: none;
   padding: 15px;
   border-radius: 10px;
-  width: 100% ;
+  width: 100%;
   color: var(--text);
   margin-bottom: 5%;
   box-sizing: border-box;
@@ -79,4 +80,12 @@ button:hover {
   background-color: var(--bg-hover);
   transition: 0.2s;
   box-shadow: var(--shadow-l);
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  height: 10dvh;
+  align-items: center;
+  padding-right: 2%;
 }

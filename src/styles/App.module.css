@@ -26,8 +26,9 @@
 .power {
     transition: 0.2s;
     border-radius: 99px;
-    width: 10%;
-    height: 35px;
+    width: 3%;
+    height: 6dvh;
+    cursor: pointer;
 }
 
 .power:hover {

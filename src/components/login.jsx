@@ -1,5 +1,6 @@
 import styles from '../styles/App.module.css'
 import { Link } from 'react-router-dom'
+import { Power } from 'lucide-react'
 
 export default function Login() {
     const mode = () => {
@@ -7,19 +8,24 @@ export default function Login() {
     }
 
     return (
-        <div className={styles.bg}>
-            <div className={styles.container}>
-                <form className={styles.form}>
-                    <h1>LOG IN</h1>
+        <>
+            <header>
+                <Power className={styles.power} onClick={mode} />
+            </header>
+            <div className={styles.bg}>
+                <div className={styles.container}>
+                    <form className={styles.form}>
+                        <h1>LOG IN</h1>
 
-                    <input type='text' placeholder='Email...' />
-                    <input type='password' placeholder='Senha...' />
+                        <input type='text' placeholder='Email...' />
+                        <input type='password' placeholder='Senha...' />
 
-                    <button type='submit'>ENTRAR</button>
+                        <button type='submit'>ENTRAR</button>
 
-                    <h3>Não tem cadastro? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
-                </form>
+                        <h3>Não tem cadastro? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
