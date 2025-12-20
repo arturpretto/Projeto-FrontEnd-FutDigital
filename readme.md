@@ -5,9 +5,9 @@ Objetivo: Interface onde o cliente navega na vitrine e contrata, e o admin geren
 Mês 1: Estrutura e Vitrine <br>
     • Foco: Exibição dos serviços para o cliente. <br>
     • Entregáveis (Git): <br>
-    • [ ] Setup do projeto React (Vite). <br>
-    • [ ] Configuração de Rotas: /, /login, /admin, /meus-pedidos. <br>
-    • [ ] Tela Home (Vitrine): Grid de cards consumindo GET /services. <br>
+    • [✅] Setup do projeto React (Vite). <br>
+    • [✅] Configuração de Rotas: /, /login, /admin, /meus-pedidos. <br>
+    • [✅] Tela Home (Vitrine): Grid de cards consumindo GET /services. <br>
     • [ ] Tela de Detalhes: Ao clicar no card, abre página com descrição completa e preço. <br> <br>
 Mês 2: Fluxo de Compra e Usuário <br>
     • Foco: Transformar visitante em cliente. <br>
