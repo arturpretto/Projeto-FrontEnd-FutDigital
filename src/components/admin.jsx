@@ -1,16 +1,29 @@
 import styles from '../styles/App.module.css'
-import { Power } from 'lucide-react'
+import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 export default function Admin() {
-    const mode = () => {
-        document.body.classList.toggle('light')
-    }
+    const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+    
+        useEffect(() => {
+            localStorage.setItem('mode', isLight ? 'light' : 'dark')
+            
+            if (isLight) {
+                document.body.classList.add('light')
+            } else {
+                document.body.classList.remove('light')
+            }
+        }, [isLight])
 
     return (
         <>
             <header>
-                <Power className={styles.power} onClick={mode} />
+                {isLight ? (
+                    <Flashlight className={styles.power} onClick={() => setLight(!isLight)} />
+                ) : (
+                    <FlashlightOff className={styles.power} onClick={() => setLight(!isLight)} />
+                )}
             </header>
         </>
     )
