@@ -1,0 +1,36 @@
+.detailsList {
+    width: 50%;
+    height: 50dvh;
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-l);
+    padding: 30px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.colorMode {
+    transition: 0.2s;
+    border-radius: 99px;
+    width: 3%;
+    height: 6dvh;
+    cursor: pointer;
+}
+
+.colorMode:hover {
+    transition: 0.2s;
+    background-color: white;
+    color: var(--text-hover);
+    background-color: var(--bg-hover);
+}
+
+.homeButton {
+    height: 5dvh;
+    width: 8%;
+    background-color: var(--bg);
+}

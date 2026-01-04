@@ -1,9 +1,9 @@
-import styles from '../styles/App.module.css'
+import styles from './Product.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-export default function Details() {
+export default function Product() {
     const [product, setProduct] = useState(null)
     const { id } = useParams()
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
@@ -32,18 +32,18 @@ export default function Details() {
         <>
             <header>
                 <nav>
-                    <Link to='/services'><button className={styles.navBtn}>HOME</button></Link>
+                    <Link to='/services'><button className={styles.homeButton}>HOME</button></Link>
                 </nav>
                 {isLight ? (
-                    <Flashlight className={styles.power} onClick={() => setLight(!isLight)} />
+                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (
-                    <FlashlightOff className={styles.power} onClick={() => setLight(!isLight)} />
+                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.details}>
+                <div className={styles.detailsList}>
                     {product && (
-                        <div key={product.id} className={styles.detailed}>
+                        <div key={product.id} className={styles.details}>
                             <h1>{product.title}</h1>
                             <p>{product.body}</p>
                         </div>

@@ -1,0 +1,14 @@
+.colorMode {
+    transition: 0.2s;
+    border-radius: 99px;
+    width: 3%;
+    height: 6dvh;
+    cursor: pointer;
+}
+
+.colorMode:hover {
+    transition: 0.2s;
+    background-color: white;
+    color: var(--text-hover);
+    background-color: var(--bg-hover);
+}

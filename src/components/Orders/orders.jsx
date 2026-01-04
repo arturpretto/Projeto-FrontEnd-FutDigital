@@ -1,4 +1,4 @@
-import styles from '../styles/App.module.css'
+import styles from './Orders.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -20,9 +20,9 @@ export default function Orders() {
         <>
             <header>
                 {isLight ? (
-                    <Flashlight className={styles.power} onClick={() => setLight(!isLight)} />
+                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (
-                    <FlashlightOff className={styles.power} onClick={() => setLight(!isLight)} />
+                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 )}
             </header>
         </>

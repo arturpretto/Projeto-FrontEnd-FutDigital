@@ -1,4 +1,4 @@
-import styles from '../styles/App.module.css'
+import styles from './Home.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -31,9 +31,9 @@ export default function Home() {
         <>
             <header>
                 {isLight ? (
-                    <Flashlight className={styles.power} onClick={() => setLight(!isLight)} />
+                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (
-                    <FlashlightOff className={styles.power} onClick={() => setLight(!isLight)} />
+                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 )}
             </header>
             <div className={styles.bg}>
