@@ -1,21 +1,23 @@
 import { Routes, Route } from 'react-router-dom'
-import Login from './components/Auth/login'
-import Signup from './components/Auth/signup'
-import Home from './components/Home/home'
-import Admin from './components/Admin/admin'
-import Product from './components/Product/product'
-import Orders from './components/Orders/orders'
+import Login from './pages/Auth/login'
+import Signup from './pages/Auth/signup'
+import Home from './pages/Home/home'
+import Admin from './pages/Admin/admin'
+import Product from './pages/Product/details'
+import Orders from './pages/Orders/orders'
+import Checkout from './components/checkout'
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/services' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/admin' element={<Admin />} />
-        <Route path='/services/:id' element={<Product />} />
+        <Route path='/product/:id' element={<Product />} />
         <Route path='/orders' element={<Orders />} />
+        <Route path='/checkout/:id' element={<Checkout />} />
       </Routes>
     </>
   )

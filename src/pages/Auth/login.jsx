@@ -8,7 +8,7 @@ export default function Login() {
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
-        
+
         if (isLight) {
             document.body.classList.add('light')
         } else {
@@ -20,8 +20,9 @@ export default function Login() {
         <>
             <header>
                 <nav>
-                    <Link to='/services'><button className={styles.homeButton}>HOME</button></Link>
+                    <Link to='/'><button className={styles.homeBtn}>HOME</button></Link>
                 </nav>
+                
                 {isLight ? (
                     <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (

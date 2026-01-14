@@ -2,6 +2,7 @@ import styles from './Home.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { mockProducts } from '../../services/mockApi';
 
 export default function Home() {
     const [products, setProducts] = useState([])
@@ -9,7 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
-        
+
         if (isLight) {
             document.body.classList.add('light')
         } else {
@@ -18,18 +19,16 @@ export default function Home() {
     }, [isLight])
 
     useEffect(() => {
-        const getProducts = async () => {
-            const api = await fetch('https://jsonplaceholder.typicode.com/posts')
-            const response = await api.json()
-            setProducts(response)
-        }
-
-        getProducts()
+        setProducts(mockProducts)
     }, [])
 
     return (
         <>
             <header>
+                <nav>
+                    <Link to='/login'><button className={styles.loginBtn}>ENTRAR</button></Link>
+                </nav>
+
                 {isLight ? (
                     <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (
@@ -39,9 +38,9 @@ export default function Home() {
             <div className={styles.bg}>
                 <div className={styles.services}>
                     <div className={styles.servicesList}>
-                        {products.map(product => (
-                            <div key={product.id}>
-                                <p>{product.title} <Link to={`/services/${product.id}`}><a>VER</a></Link></p>
+                        {products.map(products => (
+                            <div key={products.id}>
+                                <p>{products.title} <Link to={`/product/${products.id}`}><a>VER</a></Link></p>
                             </div>
                         ))}
                     </div>
