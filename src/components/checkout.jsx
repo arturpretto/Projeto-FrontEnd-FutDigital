@@ -1,11 +1,15 @@
 import styles from '../pages/Product/Details.module.css'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import Product from './product'
 
 export default function Checkout() {
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+
+    const userId = localStorage.getItem('userId')
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
@@ -16,6 +20,16 @@ export default function Checkout() {
             document.body.classList.remove('light')
         }
     }, [isLight])
+
+    const handler = async (event) => {
+        event.preventDefault()
+
+        if (userId) {
+            navigate('/')
+        } else {
+            alert('Efetue o login.')
+        }
+    }
 
     return (
         <>
@@ -37,7 +51,7 @@ export default function Checkout() {
                         <input type='text' placeholder='Sua rua...' />
                         <input type='text' placeholder='Número de residência...' />
                         <input type='date' />
-                        <button type='submit'>CONTRATAR</button>
+                        <button type='submit' onSubmit={handler}>CONTRATAR</button>
                     </form>
                 </div>
             </div>
