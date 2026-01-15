@@ -50,12 +50,16 @@
 }
 
 .form {
-    height: 50%;
+    height: 100%;
     width: 50%;
+    gap: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: var(--shadow-m);
+    padding: 36px;
+    border-radius: 15px;
 }
 
 .orderBtn {
@@ -81,9 +85,19 @@
     box-shadow: var(--shadow-l);
 }
 
-.product {
+.productDetails {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 50%;
+}
+
+.checkoutContainer{
+    display: flex;
+    width: 50%;
+    height: 70dvh;
+    background-color: var(--bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-l);
+    padding: 30px;
 }

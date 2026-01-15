@@ -2,7 +2,7 @@ import styles from './Details.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Product from '../../components/product'
+import ProductDetail from '../../components/productDetail'
 
 export default function Details() {
     const [product, setProduct] = useState(null)
@@ -42,7 +42,7 @@ export default function Details() {
             </header>
             <div className={styles.bg}>
                 <div className={styles.container}>
-                    <Product product={product} />
+                    <ProductDetail product={product} />
                     <Link to={`/checkout/${id}`} className={styles.orderBtn}>CONTRATAR</Link>
                 </div>
             </div>

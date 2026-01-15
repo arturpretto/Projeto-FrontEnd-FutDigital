@@ -1,11 +1,17 @@
 import styles from './Auth.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { Flashlight, FlashlightOff } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { mockUsers } from '../../services/usersApi'
+import { Flashlight, FlashlightOff, User, Check, Loader2 } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Login() {
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+
+    const [isVisible, setVisible] = useState(false)
+    const [showCheck, setCheck] = useState(false)
+    const [isLoading, setLoading] = useState(false)
+
+    const emailRef = useRef()
+    const passwordRef = useRef()
 
     const navigate = useNavigate()
 
@@ -22,16 +28,36 @@ export default function Login() {
     const handler = async (event) => {
         event.preventDefault()
 
-        const email = document.getElementById('email')
-        const password = document.getElementById('password')
-
+        const email = emailRef.current.value
+        const password = passwordRef.current.value
+        
         async function getUser() {
-            const foundUser = mockUsers.find(u => u.email === email)
+            const response = await fetch(`http://localhost:5000/users?email=${email}`);
+            const usersFound = await response.json();
+            const credentialsCheck = document.getElementById('credentialsCheck')
 
-            if (foundUser.password === password) {
-                localStorage.setItem('userId', foundUser.id)
+            setLoading(true)
 
-                navigate('/')
+            if (usersFound.length > 0 && usersFound[0].password === password) {
+                localStorage.setItem('userId', usersFound[0].id)
+
+                setTimeout(() => {
+                    setLoading(false)
+                    setCheck(true)
+                    setVisible(false)
+                }, 1000)
+
+                setTimeout(() => {
+                    navigate('/')
+                }, 2000)
+
+            } else {
+                setTimeout(() => {
+                    setLoading(false)
+                    setVisible(true)
+                    credentialsCheck.textContent = 'E-mail ou senha incorretos'
+                }, 1000)
+
             }
         }
 
@@ -41,10 +67,6 @@ export default function Login() {
     return (
         <>
             <header>
-                <nav>
-                    <Link to='/'><button className={styles.homeBtn}>HOME</button></Link>
-                </nav>
-
                 {isLight ? (
                     <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 ) : (
@@ -53,15 +75,28 @@ export default function Login() {
             </header>
             <div className={styles.bg}>
                 <div className={styles.container}>
-                    <form className={styles.form}>
+                    <form className={styles.form} onSubmit={handler}>
+                        <User className={styles.userSvg} />
+
                         <h1>LOG IN</h1>
 
-                        <input type='text' placeholder='Email...' id='email' />
-                        <input type='password' placeholder='Senha...' id='password' />
+                        <input type='text' placeholder='Email...' id='email' ref={emailRef} />
+                        <input type='password' placeholder='Senha...' id='password' ref={passwordRef} />
 
-                        <button type='submit' onSubmit={handler}>ENTRAR</button>
+                        <div className={`${styles.credentialsError} ${isVisible ? styles.visible : styles.hidden}`}>
+                            <p id='credentialsCheck'></p>
+                        </div>
+
+                        <button type='submit'>
+                            {showCheck ? (
+                                <Check className={styles.spanCheck} />
+                            ) : isLoading ? (
+                                <Loader2 className={styles.spanLoading} />
+                            ) : 'ENTRAR'}
+                        </button>
 
                         <h3>Não tem cadastro? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
+                        <h3><Link to='/'>Entrar como visitante</Link></h3>
                     </form>
                 </div>
             </div>

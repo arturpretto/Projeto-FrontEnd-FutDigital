@@ -2,7 +2,7 @@ import styles from './Home.module.css'
 import { Flashlight, FlashlightOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { mockProducts } from '../../services/mockApi';
+import ProductCard from '../../components/productCard'
 
 export default function Home() {
     const [products, setProducts] = useState([])
@@ -19,7 +19,14 @@ export default function Home() {
     }, [isLight])
 
     useEffect(() => {
-        setProducts(mockProducts)
+        async function getProducts() {
+            const response = await fetch(`http://localhost:5000/products`);
+            const productsFound = await response.json();
+
+            setProducts(productsFound)
+        }
+
+        getProducts()
     }, [])
 
     return (
@@ -36,12 +43,10 @@ export default function Home() {
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.services}>
+                <div className={styles.servicesContainer}>
                     <div className={styles.servicesList}>
-                        {products.map(products => (
-                            <div key={products.id}>
-                                <p>{products.title} <Link to={`/product/${products.id}`}><a>VER</a></Link></p>
-                            </div>
+                        {products.map(product => (
+                            <ProductCard id={product.id} title={product.title} />
                         ))}
                     </div>
                 </div>
