@@ -34,5 +34,28 @@
       "title": "Produto 4",
       "price": 400
     }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": "1",
+      "productId": "2",
+      "date": "2026-01-17",
+      "status": "pending"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "productId": "3",
+      "date": "2026-01-17",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "productId": "1",
+      "date": "2026-01-17",
+      "status": "denied"
+    }
   ]
 }

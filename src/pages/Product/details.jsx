@@ -5,9 +5,10 @@ import { useState, useEffect } from 'react'
 import ProductDetail from '../../components/productDetail'
 
 export default function Details() {
-    const [product, setProduct] = useState(null)
-    const { id } = useParams()
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+
+    const { id } = useParams()
+
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
@@ -18,15 +19,6 @@ export default function Details() {
             document.body.classList.remove('light')
         }
     }, [isLight])
-
-    useEffect(() => {
-        async function loadProducts() {
-            const foundProduct = mockProducts.find(p => p.id === Number(id));
-            setProduct(foundProduct);
-        }
-
-        loadProducts()
-    }, [id])
 
     return (
         <>
@@ -41,10 +33,10 @@ export default function Details() {
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.container}>
-                    <ProductDetail product={product} />
+                <main className={styles.container}>
+                    <ProductDetail />
                     <Link to={`/checkout/${id}`} className={styles.orderBtn}>CONTRATAR</Link>
-                </div>
+                </main>
             </div>
         </>
     )

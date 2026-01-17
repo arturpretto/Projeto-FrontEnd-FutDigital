@@ -20,7 +20,7 @@ export default function Home() {
 
     useEffect(() => {
         async function getProducts() {
-            const response = await fetch(`http://localhost:5000/products`);
+            const response = await fetch(`http://localhost:3000/products`);
             const productsFound = await response.json();
 
             setProducts(productsFound)
@@ -34,6 +34,7 @@ export default function Home() {
             <header>
                 <nav>
                     <Link to='/login'><button className={styles.loginBtn}>ENTRAR</button></Link>
+                    <Link to='/orders'><button className={styles.loginBtn}>PEDIDOS</button></Link>
                 </nav>
 
                 {isLight ? (
@@ -44,11 +45,11 @@ export default function Home() {
             </header>
             <div className={styles.bg}>
                 <div className={styles.servicesContainer}>
-                    <div className={styles.servicesList}>
+                    <main className={styles.servicesList}>
                         {products.map(product => (
                             <ProductCard id={product.id} title={product.title} />
                         ))}
-                    </div>
+                    </main>
                 </div>
             </div>
         </>

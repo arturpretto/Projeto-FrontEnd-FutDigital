@@ -30,9 +30,9 @@ export default function Login() {
 
         const email = emailRef.current.value
         const password = passwordRef.current.value
-        
+
         async function getUser() {
-            const response = await fetch(`http://localhost:5000/users?email=${email}`);
+            const response = await fetch(`http://localhost:3000/users?email=${email}`);
             const usersFound = await response.json();
             const credentialsCheck = document.getElementById('credentialsCheck')
 
@@ -74,7 +74,7 @@ export default function Login() {
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.container}>
+                <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>
                         <User className={styles.userSvg} />
 
@@ -98,7 +98,7 @@ export default function Login() {
                         <h3>Não tem cadastro? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
                         <h3><Link to='/'>Entrar como visitante</Link></h3>
                     </form>
-                </div>
+                </main>
             </div>
         </>
     )

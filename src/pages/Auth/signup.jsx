@@ -36,7 +36,7 @@ export default function Signup() {
         }
 
         async function getUser() {
-            const responseCheck = await fetch(`http://localhost:5000/users?email=${emailRef.current.value}`)
+            const responseCheck = await fetch(`http://localhost:3000/users?email=${emailRef.current.value}`)
 
             const usersFound = await responseCheck.json();
             const credentialsCheck = document.getElementById('credentialsCheck')
@@ -54,7 +54,7 @@ export default function Signup() {
                     return
                 }
 
-                const response = await fetch(`http://localhost:5000/users`, {
+                const response = await fetch(`http://localhost:3000/users`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(credentials)
@@ -91,7 +91,7 @@ export default function Signup() {
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.container}>
+                <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>
                         <UserPen className={styles.userSvg} />
 
@@ -116,7 +116,7 @@ export default function Signup() {
                         <h3>Já tem uma conta? <Link to='/login'><a>ENTRAR</a></Link></h3>
                         <h3><Link to='/'>Entrar como visitante</Link></h3>
                     </form>
-                </div>
+                </main>
             </div>
         </>
     )

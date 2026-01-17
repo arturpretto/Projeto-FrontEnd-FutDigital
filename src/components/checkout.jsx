@@ -46,7 +46,7 @@ export default function Checkout() {
                 )}
             </header>
             <div className={styles.bg}>
-                <div className={styles.checkoutContainer}>
+                <main className={styles.checkoutContainer}>
                     <ProductDetail />
                     <form className={styles.form} onSubmit={handler}>
                         <input type='text' placeholder='Sua rua...' />
@@ -54,7 +54,7 @@ export default function Checkout() {
                         <input type='date' />
                         <button type='submit'>CONTRATAR</button>
                     </form>
-                </div>
+                </main>
             </div>
         </>
     )

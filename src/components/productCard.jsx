@@ -9,8 +9,8 @@ export default function ProductCard({ id, title }) {
     }
 
     return (
-        <div key={id} className={styles.product} onClick={seeDetails}>
-            <p>{title}</p>
-        </div>
+        <article key={id} className={styles.product} onClick={seeDetails}>
+            {title}
+        </article>
     )
 }
