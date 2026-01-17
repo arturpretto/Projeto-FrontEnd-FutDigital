@@ -14,7 +14,7 @@ Mês 2: Fluxo de Compra e Usuário <br>
     • Entregáveis (Git): <br>
     • [✅] Login/Registro: Telas integradas com a API. <br>
     • [✅] Checkout (Modal ou Tela): Formulário onde o usuário escolhe a data/detalhes e clica em "Contratar". <br>
-    • [ ] Meus Pedidos: Lista para o cliente acompanhar o status (ex: "Aguardando Aprovação"). <br>
+    • [✅] Meus Pedidos: Lista para o cliente acompanhar o status (ex: "Aguardando Aprovação"). <br>
     • [✅] Validação Visual: Exibir erro se tentar agendar sem estar logado. <br> <br>
 Mês 3: Painel Administrativo e Deploy <br>
     • Foco: Gestão do negócio. <br>
