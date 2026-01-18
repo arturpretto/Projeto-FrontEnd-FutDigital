@@ -23,27 +23,6 @@
     text-align: center;
 }
 
-.colorMode {
-    transition: 0.2s;
-    border-radius: 99px;
-    width: 3%;
-    height: 6dvh;
-    cursor: pointer;
-}
-
-.colorMode:hover {
-    transition: 0.2s;
-    background-color: white;
-    color: var(--text-hover);
-    background-color: var(--bg-hover);
-}
-
-.homeBtn {
-    height: 5dvh;
-    width: 8%;
-    background-color: var(--bg);
-}
-
 .userSvg {
     height: 20%;
     width: 20%;

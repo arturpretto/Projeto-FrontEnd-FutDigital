@@ -27,34 +27,6 @@
     flex-wrap: wrap;
 }
 
-.colorMode {
-    transition: 0.2s;
-    border-radius: 99px;
-    width: 3%;
-    height: 6dvh;
-    cursor: pointer;
-}
-
-.colorMode:hover {
-    transition: 0.2s;
-    background-color: white;
-    color: var(--text-hover);
-    background-color: var(--bg-hover);
-}
-
-.loginBtn {
-    height: 5dvh;
-    width: 8%;
-    background-color: var(--bg);
-}
-
-.loginBtn:hover {
-    color: var(--text-hover);
-    background-color: var(--bg-hover);
-    transition: 0.2s;
-    box-shadow: var(--shadow-l);
-}
-
 .product {
     display: flex;
     justify-content: center;
@@ -67,13 +39,13 @@
 }
 
 @media (min-width: 600px) {
-  .product {
-    flex: 0 1 calc(50% - 15px); 
-  }
+    .product {
+        flex: 0 1 calc(50% - 15px);
+    }
 }
 
 @media (min-width: 1024px) {
-  .product {
-    flex: 0 1 calc(25% - 15px); 
-  }
+    .product {
+        flex: 0 1 calc(25% - 15px);
+    }
 }

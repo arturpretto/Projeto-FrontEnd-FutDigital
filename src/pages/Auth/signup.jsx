@@ -90,6 +90,7 @@ export default function Signup() {
                     <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 )}
             </header>
+            
             <div className={styles.bg}>
                 <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>

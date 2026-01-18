@@ -13,6 +13,9 @@ body {
 a {
   color: var(--text-sec);
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
@@ -55,13 +58,23 @@ button:hover {
 
 header {
   display: flex;
-  justify-content: space-between;
-  height: 10dvh;
+  justify-content: flex-end;
   align-items: center;
+  height: 10dvh;
   padding-right: 2%;
   padding-left: 2%;
 }
 
 nav {
   min-width: 90%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+ul {
+  list-style: none;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }

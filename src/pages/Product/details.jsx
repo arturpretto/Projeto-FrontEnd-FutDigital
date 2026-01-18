@@ -1,14 +1,24 @@
 import styles from './Details.module.css'
-import { Flashlight, FlashlightOff } from 'lucide-react'
-import { Link, useParams } from 'react-router-dom'
+import nav from '../../styles/Nav.module.css'
+import { House, User } from 'lucide-react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ProductDetail from '../../components/productDetail'
 
 export default function Details() {
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+    const [isMenu, setMenu] = useState(false)
+
+    const navigate = useNavigate()
+
+    const userId = localStorage.getItem('userId')
+
+    const logout = () => {
+        localStorage.removeItem('userId')
+        navigate('/login')
+    }
 
     const { id } = useParams()
-
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
@@ -24,17 +34,31 @@ export default function Details() {
         <>
             <header>
                 <nav>
-                    <Link to='/'><button className={styles.homeBtn}>HOME</button></Link>
+                    <Link to='/' className={nav.homeLink}><House className={nav.homeBtn} /> <p>HOME</p></Link>
                 </nav>
-                {isLight ? (
-                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                ) : (
-                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                )}
+
+                {userId ? (
+                    <div className={nav.profileContainer}>
+                        <div className={nav.profileIcon} onClick={() => setMenu(!isMenu)}>
+                            <User size={48} />
+                        </div>
+
+                        {isMenu && (
+                            <div className={nav.dropdown}>
+                                <ul>
+                                    <li><Link to='/orders' className={nav.ordersLink}>Meus pedidos</Link></li>
+                                    <li onClick={() => setLight(!isLight)}>Tema</li>
+                                    <li className={nav.logout} onClick={logout}>Sair</li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                ) : ''}
             </header>
+
             <div className={styles.bg}>
                 <main className={styles.container}>
-                    <ProductDetail />
+                    <ProductDetail id={id}/>
                     <Link to={`/checkout/${id}`} className={styles.orderBtn}>CONTRATAR</Link>
                 </main>
             </div>

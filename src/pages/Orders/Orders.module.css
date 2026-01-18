@@ -6,21 +6,6 @@
     align-items: center;
 }
 
-.colorMode {
-    transition: 0.2s;
-    border-radius: 99px;
-    width: 3%;
-    height: 6dvh;
-    cursor: pointer;
-}
-
-.colorMode:hover {
-    transition: 0.2s;
-    background-color: white;
-    color: var(--text-hover);
-    background-color: var(--bg-hover);
-}
-
 .ordersContainer {
     width: 70%;
     height: 70dvh;
@@ -51,29 +36,6 @@
     height: 20%;
     border-radius: 10px;
     flex: 0 1 100%;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spanLoading {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    animation: spin 1s linear infinite;
-}
-
-.homeBtn {
-    height: 5dvh;
-    width: 8%;
-    background-color: var(--bg);
 }
 
 @media (min-width: 600px) {

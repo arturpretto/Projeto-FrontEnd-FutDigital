@@ -1,12 +1,23 @@
 import styles from './Orders.module.css'
-import { Flashlight, FlashlightOff } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import nav from '../../styles/Nav.module.css'
+import { House, User } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import OrderCard from '../../components/orderCard'
 
 export default function Orders() {
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
     const [orders, setOrders] = useState([])
+    const [isMenu, setMenu] = useState(false)
+
+    const navigate = useNavigate()
+
+    const userId = localStorage.getItem('userId')
+
+    const logout = () => {
+        localStorage.removeItem('userId')
+        navigate('/login')
+    }
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
@@ -35,14 +46,28 @@ export default function Orders() {
         <>
             <header>
                 <nav>
-                    <Link to='/'><button className={styles.homeBtn}>HOME</button></Link>
+                    <Link to='/' className={nav.homeLink}><House className={nav.homeBtn} /> <p>HOME</p></Link>
                 </nav>
-                {isLight ? (
-                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                ) : (
-                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                )}
+
+                {userId ? (
+                    <div className={nav.profileContainer}>
+                        <div className={nav.profileIcon} onClick={() => setMenu(!isMenu)}>
+                            <User size={48} />
+                        </div>
+
+                        {isMenu && (
+                            <div className={nav.dropdown}>
+                                <ul>
+                                    <li><Link to='/orders' className={nav.ordersLink}>Meus pedidos</Link></li>
+                                    <li onClick={() => setLight(!isLight)}>Tema</li>
+                                    <li className={nav.logout} onClick={logout}>Sair</li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                ) : ''}
             </header>
+
             <div className={styles.bg}>
                 <div className={styles.ordersContainer}>
                     <main className={styles.ordersList}>

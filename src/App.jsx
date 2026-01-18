@@ -5,7 +5,7 @@ import Home from './pages/Home/home'
 import Admin from './pages/Admin/admin'
 import Product from './pages/Product/details'
 import Orders from './pages/Orders/orders'
-import Checkout from './components/checkout'
+import Checkout from './pages/Product/checkout'
 
 export default function App() {
   return (

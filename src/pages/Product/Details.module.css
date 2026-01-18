@@ -16,27 +16,6 @@
     gap: 20px;
 }
 
-.colorMode {
-    transition: 0.2s;
-    border-radius: 99px;
-    width: 3%;
-    height: 6dvh;
-    cursor: pointer;
-}
-
-.colorMode:hover {
-    transition: 0.2s;
-    background-color: white;
-    color: var(--text-hover);
-    background-color: var(--bg-hover);
-}
-
-.homeBtn {
-    height: 5dvh;
-    width: 8%;
-    background-color: var(--bg);
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -92,7 +71,7 @@
     height: 50%;
 }
 
-.checkoutContainer{
+.checkoutContainer {
     display: flex;
     width: 50%;
     height: 70dvh;
@@ -100,4 +79,55 @@
     border-radius: 20px;
     box-shadow: var(--shadow-l);
     padding: 30px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes checkBounce {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.spanCheck {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    animation: checkBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.spanLoading {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+.loginError {
+    margin-top: 5%;
+    color: rgb(235, 76, 76);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }

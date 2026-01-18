@@ -1,11 +1,8 @@
 import styles from '../pages/Product/Details.module.css'
-import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-export default function ProductDetail() {
+export default function ProductDetail({ id }) {
     const [product, setProduct] = useState(null)
-
-    const { id } = useParams()
 
     useEffect(() => {
         async function getProducts() {
@@ -19,13 +16,13 @@ export default function ProductDetail() {
     }, [id])
 
     return (
-        <main className={styles.productDetails}>
+        <div className={styles.productDetails}>
             {product && (
                 <div key={product.id} className={styles.details}>
                     <h1>{product.title}</h1>
                     <p>{product.price}</p>
                 </div>
             )}
-        </main>
+        </div>
     )
 }

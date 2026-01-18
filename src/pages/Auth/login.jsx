@@ -47,9 +47,7 @@ export default function Login() {
                     setVisible(false)
                 }, 1000)
 
-                setTimeout(() => {
-                    navigate('/')
-                }, 2000)
+                setTimeout(() => navigate('/'), 2000)
 
             } else {
                 setTimeout(() => {
@@ -73,6 +71,7 @@ export default function Login() {
                     <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
                 )}
             </header>
+
             <div className={styles.bg}>
                 <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>
