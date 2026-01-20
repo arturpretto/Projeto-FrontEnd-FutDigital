@@ -1,0 +1,81 @@
+.dropdown {
+    position: absolute;
+    padding: 16px;
+    z-index: 100;
+    min-width: 200px;
+    right: 0;
+    box-shadow: var(--shadow-l);
+    background-color: var(--bg);
+    border-radius: 10px;
+}
+
+.profileContainer {
+    position: relative;
+}
+
+.profileIcon {
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 16px;
+}
+
+.profileIcon:hover {
+    color: var(--text-hover);
+    background-color: var(--bg-hover);
+    transition: 0.3s;
+}
+
+.dropdown li {
+    cursor: pointer;
+    color: var(--text);
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    transition: 0.2s;
+}
+
+.dropdown li:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-hover);
+}
+
+.signLink {
+    color: inherit;
+    font-weight: bold;
+}
+
+.ordersLink {
+    color: inherit;
+}
+
+.ordersLink,
+.signLink {
+    width: 100%;
+}
+
+.homeBtn {
+    height: 100%;
+    width: 100%;
+    color: var(--text);
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.homeLink {
+    width: 5%;
+    height: 100%;
+    transition: 0.2s;
+    padding: 6px;
+    display: flex;
+    gap: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.homeLink:hover svg {
+    color: var(--text-hover);
+    background-color: var(--bg-hover);
+    transition: 0.2s;
+    box-shadow: var(--shadow-l);
+}
