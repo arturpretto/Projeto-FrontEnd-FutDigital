@@ -2,14 +2,18 @@ import styles from '../pages/Product/Details.module.css'
 import { useState, useEffect } from 'react'
 
 export default function ProductDetail({ id }) {
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState({})
 
     useEffect(() => {
         async function getProducts() {
-            const response = await fetch(`http://localhost:3000/products/${id}`);
-            const productFound = await response.json();
+            try {
+                const response = await fetch(`http://localhost:3000/products/${id}`);
+                const productFound = await response.json();
 
-            setProduct(productFound)
+                setProduct(productFound)
+            } catch (error) {
+                console.error(error)
+            }
         }
 
         getProducts()

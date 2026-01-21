@@ -54,26 +54,17 @@
     width: 100%;
 }
 
-.homeBtn {
-    height: 100%;
-    width: 100%;
-    color: var(--text);
-    border-radius: 12px;
-    transition: 0.2s;
-}
-
 .homeLink {
-    width: 5%;
-    height: 100%;
     transition: 0.2s;
     padding: 6px;
     display: flex;
     gap: 12px;
     font-size: 1.2em;
     font-weight: bold;
+    border-radius: 16px;
 }
 
-.homeLink:hover svg {
+.homeLink:hover {
     color: var(--text-hover);
     background-color: var(--bg-hover);
     transition: 0.2s;

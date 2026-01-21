@@ -12,6 +12,7 @@ export default function Checkout() {
     const [isMenu, setMenu] = useState(false)
     const [isVisible, setVisible] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [user, setUser] = useState({})
 
     const logout = () => {
         localStorage.removeItem('userId')
@@ -35,6 +36,20 @@ export default function Checkout() {
         }
     }, [isLight])
 
+    useEffect(() => {
+        async function getUser() {
+            try {
+                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const userFound = await response.json();
+                setUser(userFound);
+            } catch (error) {
+                console.error("Erro ao buscar usuário", error);
+            }
+        }
+
+        getUser()
+    }, [userId])
+
     const handler = async (event) => {
         event.preventDefault()
 
@@ -42,28 +57,35 @@ export default function Checkout() {
 
         if (userId) {
             try {
-                const response = await fetch(`http://localhost:3000/orders`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        userId: userId,
-                        productId: id,
-                        date: dateRef.current.value,
-                        status: "pending"
+                if (dateRef.current && dateRef.current.value) {
+                    const response = await fetch(`http://localhost:3000/orders`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            userId: userId,
+                            productId: id,
+                            date: dateRef.current.value,
+                            status: "pending"
+                        })
                     })
-                })
 
-                if (response.ok) {
-                    setTimeout(() => {
-                        setLoading(false)
-                        setCheck(true)
-                        setVisible(false)
-                    }, 1000)
+                    if (response.ok) {
+                        setTimeout(() => {
+                            setLoading(false)
+                            setCheck(true)
+                            setVisible(false)
+                        }, 1000)
 
-                    setTimeout(() => navigate('/'), 2000)
+                        setTimeout(() => navigate('/'), 2000)
+                    }
+                } else {
+                    setLoading(false)
+                    setVisible(true)
+                    setErrorMessage('Insira uma data válida')
                 }
+
             } catch (error) {
-                setLoading(false);
+                setLoading(false)
                 setVisible(true)
                 setErrorMessage('Erro de conexão com o servidor')
             }
@@ -80,7 +102,7 @@ export default function Checkout() {
         <>
             <header>
                 <nav>
-                    <Link to='/' className={nav.homeLink}><House className={nav.homeBtn} /></Link>
+                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
                 </nav>
 
                 {userId ? (
@@ -94,9 +116,10 @@ export default function Checkout() {
                                 <ul>
                                     {userId ? <li><Link to='/orders' className={nav.ordersLink}>Meus pedidos</Link></li> : ''}
                                     <li onClick={() => setLight(!isLight)}>Tema</li>
-                                    {userId ? 
-                                    (<li onClick={logout} className={nav.signLink}>Sair</li>) : 
-                                    (<li><Link to='/login' className={nav.signLink}>Entrar</Link></li>)}
+                                    {user?.role === "admin" && (<li onClick={() => navigate('/admin')}>Painel Admin</li>)}
+                                    {userId ?
+                                        (<li onClick={logout} className={nav.signLink}>Sair</li>) :
+                                        (<li><Link to='/login' className={nav.signLink}>Entrar</Link></li>)}
                                 </ul>
                             </div>
                         )}

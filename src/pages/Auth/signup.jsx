@@ -32,7 +32,8 @@ export default function Signup() {
         const credentials = {
             name: nameRef.current.value,
             email: emailRef.current.value,
-            password: passwordRef.current.value
+            password: passwordRef.current.value,
+            role: "client"
         }
 
         async function getUser() {
@@ -84,17 +85,19 @@ export default function Signup() {
     return (
         <>
             <header>
-                {isLight ? (
-                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                ) : (
-                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                )}
+                <div className={styles.colorMode}>
+                    {isLight ? (
+                        <Flashlight onClick={() => setLight(!isLight)} size={48} />
+                    ) : (
+                        <FlashlightOff onClick={() => setLight(!isLight)} size={48} />
+                    )}
+                </div>
             </header>
-            
+
             <div className={styles.bg}>
                 <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>
-                        <UserPen className={styles.userSvg} />
+                        <UserPen size={48} />
 
                         <h1>CADASTRO</h1>
 
@@ -115,7 +118,7 @@ export default function Signup() {
                         </button>
 
                         <h3>Já tem uma conta? <Link to='/login'><a>ENTRAR</a></Link></h3>
-                        <h3><Link to='/'>Entrar como visitante</Link></h3>
+                        <h3><Link to='/services'>Entrar como visitante</Link></h3>
                     </form>
                 </main>
             </div>

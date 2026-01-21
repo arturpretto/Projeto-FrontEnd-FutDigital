@@ -1,15 +1,15 @@
-import styles from './Admin.module.css'
+import styles from './Services.module.css'
 import nav from '../../styles/Nav.module.css'
+import { User } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { User, House } from 'lucide-react'
-import OrderCard from '../../components/orderCard'
+import { useEffect, useState } from 'react'
+import ProductCard from '../../components/productCard'
 
-export default function Admin() {
+export default function Services() {
+    const [products, setProducts] = useState([])
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
     const [isMenu, setMenu] = useState(false)
     const [user, setUser] = useState({})
-    const [orders, setOrders] = useState([])
 
     const navigate = useNavigate()
 
@@ -31,52 +31,33 @@ export default function Admin() {
     }, [isLight])
 
     useEffect(() => {
-        if (!userId) {
-            navigate('/login')
-        }
-    }, [userId])
+        async function getProducts() {
+            const response = await fetch(`http://localhost:3000/products`);
+            const productsFound = await response.json();
 
-    useEffect(() => {
-        if (userId) {
-            async function getUser() {
-                try {
-                    const response = await fetch(`http://localhost:3000/users/${userId}`);
-                    const userFound = await response.json();
-
-                    setUser(userFound);
-                } catch (error) {
-                    console.error("Erro ao buscar usuário", error);
-                }
-            }
-
-            getUser()
-        } else {
-            navigate('/login')
-        }
-    }, [userId])
-
-    useEffect(() => {
-        async function getOrders() {
-            try {
-                const response = await fetch(`http://localhost:3000/orders`)
-                const ordersFound = await response.json()
-
-                setOrders(ordersFound)
-            } catch (error) {
-                console.error(error)
-            }
+            setProducts(productsFound)
         }
 
-        getOrders()
+        getProducts()
     }, [])
+
+    useEffect(() => {
+        async function getUser() {
+            try {
+                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const userFound = await response.json();
+                setUser(userFound);
+            } catch (error) {
+                console.error("Erro ao buscar usuário", error);
+            }
+        }
+
+        getUser()
+    }, [userId])
 
     return (
         <>
             <header>
-                <nav>
-                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
-                </nav>
-
                 <div className={nav.profileContainer}>
                     <div className={nav.profileIcon} onClick={() => setMenu(!isMenu)}>
                         <User size={48} />
@@ -98,10 +79,10 @@ export default function Admin() {
             </header>
 
             <div className={styles.bg}>
-                <div className={styles.adminContainer}>
-                    <main className={styles.ordersList}>
-                        {orders.map(order => (
-                            <OrderCard id={order.id} productId={order.productId} date={order.date} status={order.status} />
+                <div className={styles.servicesContainer}>
+                    <main className={styles.servicesList}>
+                        {products.map(product => (
+                            <ProductCard id={product.id} title={product.title} price={product.price} />
                         ))}
                     </main>
                 </div>

@@ -47,7 +47,7 @@ export default function Login() {
                     setVisible(false)
                 }, 1000)
 
-                setTimeout(() => navigate('/'), 2000)
+                setTimeout(() => navigate('/services'), 2000)
 
             } else {
                 setTimeout(() => {
@@ -65,17 +65,19 @@ export default function Login() {
     return (
         <>
             <header>
-                {isLight ? (
-                    <Flashlight className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                ) : (
-                    <FlashlightOff className={styles.colorMode} onClick={() => setLight(!isLight)} />
-                )}
+                <div className={styles.colorMode}>
+                    {isLight ? (
+                        <Flashlight onClick={() => setLight(!isLight)} size={48} />
+                    ) : (
+                        <FlashlightOff onClick={() => setLight(!isLight)} size={48} />
+                    )}
+                </div>
             </header>
 
             <div className={styles.bg}>
                 <main className={styles.container}>
                     <form className={styles.form} onSubmit={handler}>
-                        <User className={styles.userSvg} />
+                        <User size={48} />
 
                         <h1>LOG IN</h1>
 
@@ -95,7 +97,7 @@ export default function Login() {
                         </button>
 
                         <h3>Não tem cadastro? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
-                        <h3><Link to='/'>Entrar como visitante</Link></h3>
+                        <h3><Link to='/services'>Entrar como visitante</Link></h3>
                     </form>
                 </main>
             </div>

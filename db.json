@@ -4,13 +4,22 @@
       "id": "1",
       "name": "Artur",
       "email": "artur@teste.com",
-      "password": "123"
+      "password": "123",
+      "role": "admin"
     },
     {
-      "id": "2",
-      "name": "Pretto",
-      "email": "pretto@teste.com",
-      "password": "123"
+      "id": "bbeb",
+      "name": "Bigolin",
+      "email": "bigolin@teste.com",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "11de",
+      "name": "Felipe",
+      "email": "felipe@teste.com",
+      "password": "123",
+      "role": "client"
     }
   ],
   "products": [
@@ -41,7 +50,7 @@
       "userId": "1",
       "productId": "2",
       "date": "2026-01-17",
-      "status": "pending"
+      "status": "accepted"
     },
     {
       "id": "2",
@@ -76,41 +85,6 @@
       "userId": "1",
       "productId": "2",
       "date": "2007-01-25",
-      "status": "pending"
-    },
-    {
-      "id": "890e",
-      "userId": "1",
-      "productId": "2",
-      "date": "2222-01-25",
-      "status": "pending"
-    },
-    {
-      "id": "cae2",
-      "userId": "1",
-      "productId": "2",
-      "date": "2222-01-25",
-      "status": "pending"
-    },
-    {
-      "id": "ab83",
-      "userId": "1",
-      "productId": "4",
-      "date": "1111-02-23",
-      "status": "pending"
-    },
-    {
-      "id": "5b38",
-      "userId": "1",
-      "productId": "2",
-      "date": "1111-05-23",
-      "status": "pending"
-    },
-    {
-      "id": "5eba",
-      "userId": "1",
-      "productId": "2",
-      "date": "",
       "status": "pending"
     }
   ]

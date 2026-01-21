@@ -1,24 +1,21 @@
+import { useNavigate, useParams } from 'react-router-dom'
 import styles from './Admin.module.css'
 import nav from '../../styles/Nav.module.css'
-import { Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { User, House } from 'lucide-react'
-import OrderCard from '../../components/orderCard'
+import OrderDetail from '../../components/orderDetail'
+import { useEffect, useState } from 'react'
+import { Link } from 'lucide-react'
+import { House, User } from 'lucide-react'
 
-export default function Admin() {
-    const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
+export default function Order() {
+    const [order, setOrder] = useState({})
     const [isMenu, setMenu] = useState(false)
     const [user, setUser] = useState({})
-    const [orders, setOrders] = useState([])
+    const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
 
     const navigate = useNavigate()
 
+    const { id } = useParams()
     const userId = localStorage.getItem('userId')
-
-    const logout = () => {
-        localStorage.removeItem('userId')
-        navigate('/login')
-    }
 
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
@@ -31,10 +28,19 @@ export default function Admin() {
     }, [isLight])
 
     useEffect(() => {
-        if (!userId) {
-            navigate('/login')
+        async function getOrder() {
+            try {
+                const response = await fetch(`http://localhost:3000/orders/${id}`)
+                const orderFound = await response.json()
+
+                setOrder(orderFound)
+            } catch (error) {
+                console.error(error)
+            }
         }
-    }, [userId])
+
+        getOrder()
+    }, [id])
 
     useEffect(() => {
         if (userId) {
@@ -55,20 +61,56 @@ export default function Admin() {
         }
     }, [userId])
 
-    useEffect(() => {
-        async function getOrders() {
-            try {
-                const response = await fetch(`http://localhost:3000/orders`)
-                const ordersFound = await response.json()
+    const logout = () => {
+        localStorage.removeItem('userId')
+        navigate('/login')
+    }
 
-                setOrders(ordersFound)
-            } catch (error) {
-                console.error(error)
+    const accept = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: order.userId,
+                    productId: order.productId,
+                    date: order.date,
+                    status: "accepted"
+                })
+            });
+
+            if (response.ok) {
+                navigate('/admin')
             }
+        } catch (error) {
+            console.error(error);
         }
+    }
 
-        getOrders()
-    }, [])
+    const deny = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: order.userId,
+                    productId: order.productId,
+                    date: order.date,
+                    status: "denied"
+                })
+            });
+
+            if (response.ok) {
+                navigate('/admin')
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return (
         <>
@@ -99,11 +141,10 @@ export default function Admin() {
 
             <div className={styles.bg}>
                 <div className={styles.adminContainer}>
-                    <main className={styles.ordersList}>
-                        {orders.map(order => (
-                            <OrderCard id={order.id} productId={order.productId} date={order.date} status={order.status} />
-                        ))}
-                    </main>
+                    <OrderDetail id={id} date={order.date} status={order.status} productId={order.productId} />
+
+                    <button onClick={accept}>ACEITAR</button>
+                    <button onClick={deny}>RECUSAR</button>
                 </div>
             </div>
         </>
