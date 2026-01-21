@@ -61,7 +61,7 @@ export default function Orders() {
         <>
             <header>
                 <nav>
-                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
+                    <Link to='/services' className={nav.homeLink}><House size={48} /></Link>
                 </nav>
 
                 {userId ? (

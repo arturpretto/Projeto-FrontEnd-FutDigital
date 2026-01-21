@@ -1,8 +1,22 @@
 import { useState, useEffect } from "react";
 import styles from '../pages/Orders/Orders.module.css'
 
-export default function OrderDetail({ id, date, status, productId}) {
+export default function OrderDetail({ id, date, status, productId }) {
     const [product, setProduct] = useState({})
+
+    const statusFormat = {
+        pending: "Solicitado",
+        completed: "Concluído",
+        denied: "Negado",
+        accepted: "Aceito"
+    }
+
+    const statusColors = {
+        pending: "orange",
+        completed: "green",
+        denied: "red",
+        accepted: "yellow"
+    }
 
     useEffect(() => {
         if (productId) {
@@ -28,7 +42,9 @@ export default function OrderDetail({ id, date, status, productId}) {
                     <h1>{product.title}</h1>
                     <h2>{product.price}</h2>
                     <p>{date}</p>
-                    <p>{status}</p>
+                    <p style={{ color: statusColors[status], fontWeight: 'bold' }}>
+                        {statusFormat[status]}
+                    </p>
                 </div>
             )}
         </div>

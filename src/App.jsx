@@ -3,11 +3,11 @@ import Login from './pages/Auth/login'
 import Signup from './pages/Auth/signup'
 import Services from './pages/Services/services'
 import Admin from './pages/Admin/admin'
-import Details from './pages/Product/details'
+import ProductDetails from './pages/Product/product'
 import Orders from './pages/Orders/orders'
 import Checkout from './pages/Product/checkout'
 import Home from './pages/Home/home'
-import Order from './pages/Admin/order'
+import OrderDetails from './pages/Orders/order'
 
 export default function App() {
   return (
@@ -17,8 +17,8 @@ export default function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/services' element={<Services />} />
         <Route path='/admin' element={<Admin />} />
-        <Route path='/order/:id' element={<Order />} />
-        <Route path='/product/:id' element={<Details />} />
+        <Route path='/order/:id' element={<OrderDetails />} />
+        <Route path='/product/:id' element={<ProductDetails />} />
         <Route path='/orders' element={<Orders />} />
         <Route path='/checkout/:id' element={<Checkout />} />
         <Route path='/' element={<Home />} />

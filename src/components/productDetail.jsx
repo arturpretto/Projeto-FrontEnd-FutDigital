@@ -1,4 +1,4 @@
-import styles from '../pages/Product/Details.module.css'
+import styles from '../pages/Product/Product.module.css'
 import { useState, useEffect } from 'react'
 
 export default function ProductDetail({ id }) {

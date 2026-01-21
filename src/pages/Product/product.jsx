@@ -1,11 +1,11 @@
-import styles from './Details.module.css'
+import styles from './Product.module.css'
 import nav from '../../styles/Nav.module.css'
 import { House, User } from 'lucide-react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ProductDetail from '../../components/productDetail'
 
-export default function Details() {
+export default function ProductDetails() {
     const [isLight, setLight] = useState(localStorage.getItem('mode') === 'light')
     const [isMenu, setMenu] = useState(false)
     const [user, setUser] = useState({})
@@ -49,7 +49,7 @@ export default function Details() {
         <>
             <header>
                 <nav>
-                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
+                    <Link to='/services' className={nav.homeLink}><House size={48} /></Link>
                 </nav>
 
                 {userId ? (

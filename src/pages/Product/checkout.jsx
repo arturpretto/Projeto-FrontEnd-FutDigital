@@ -1,4 +1,4 @@
-import styles from './Details.module.css'
+import styles from './Product.module.css'
 import nav from '../../styles/Nav.module.css'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -76,7 +76,7 @@ export default function Checkout() {
                             setVisible(false)
                         }, 1000)
 
-                        setTimeout(() => navigate('/'), 2000)
+                        setTimeout(() => navigate('/services'), 2000)
                     }
                 } else {
                     setLoading(false)
@@ -102,7 +102,7 @@ export default function Checkout() {
         <>
             <header>
                 <nav>
-                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
+                    <Link to='/services' className={nav.homeLink}><House size={48} /></Link>
                 </nav>
 
                 {userId ? (

@@ -1,12 +1,11 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import styles from './Admin.module.css'
+import { useNavigate, useParams, Link } from 'react-router-dom'
+import styles from './Orders.module.css'
 import nav from '../../styles/Nav.module.css'
 import OrderDetail from '../../components/orderDetail'
 import { useEffect, useState } from 'react'
-import { Link } from 'lucide-react'
 import { House, User } from 'lucide-react'
 
-export default function Order() {
+export default function OrderDetails() {
     const [order, setOrder] = useState({})
     const [isMenu, setMenu] = useState(false)
     const [user, setUser] = useState({})
@@ -116,7 +115,7 @@ export default function Order() {
         <>
             <header>
                 <nav>
-                    <Link to='/' className={nav.homeLink}><House size={48} /></Link>
+                    <Link to='/services' className={nav.homeLink}><House size={48} /></Link>
                 </nav>
 
                 <div className={nav.profileContainer}>
@@ -140,11 +139,14 @@ export default function Order() {
             </header>
 
             <div className={styles.bg}>
-                <div className={styles.adminContainer}>
+                <div className={styles.ordersContainer}>
                     <OrderDetail id={id} date={order.date} status={order.status} productId={order.productId} />
 
-                    <button onClick={accept}>ACEITAR</button>
-                    <button onClick={deny}>RECUSAR</button>
+                    {user?.role === 'admin' ?
+                        (<div className={styles.orderBtn}>
+                            <button onClick={accept}>ACEITAR</button>
+                            <button onClick={deny}>RECUSAR</button>
+                        </div>) : ''}
                 </div>
             </div>
         </>
