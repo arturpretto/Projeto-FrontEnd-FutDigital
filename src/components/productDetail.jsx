@@ -23,7 +23,7 @@ export default function ProductDetail({ id }) {
         <div className={styles.productDetails}>
             {product && (
                 <div key={product.id} className={styles.details}>
-                    <h1>{product.title}</h1>
+                    <h1>{product.name}</h1>
                     <p>{product.price}</p>
                 </div>
             )}

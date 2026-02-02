@@ -82,7 +82,7 @@ export default function Services() {
                 <div className={styles.servicesContainer}>
                     <main className={styles.servicesList}>
                         {products.map(product => (
-                            <ProductCard id={product.id} title={product.title} price={product.price} />
+                            <ProductCard key={product.id} id={product.id} name={product.name} price={product.price} />
                         ))}
                     </main>
                 </div>

@@ -140,7 +140,7 @@ export default function OrderDetails() {
 
             <div className={styles.bg}>
                 <div className={styles.ordersContainer}>
-                    <OrderDetail id={id} date={order.date} status={order.status} productId={order.productId} />
+                    <OrderDetail key={order.id} id={order.id} date={order.date} status={order.status} productId={order.productId} />
 
                     {user?.role === 'admin' ?
                         (<div className={styles.orderBtn}>

@@ -90,7 +90,7 @@ export default function Orders() {
                 <div className={styles.ordersContainer}>
                     <main className={styles.ordersList}>
                         {orders.map(order => (
-                            <OrderCard id={order.id} productId={order.productId} date={order.date} status={order.status} />
+                            <OrderCard key={order.id} id={order.id} productId={order.productId} date={order.date} status={order.status} />
                         ))}
                     </main>
                 </div>

@@ -43,7 +43,7 @@ export default function OrderCard({ id, productId, date, status }) {
 
     return (
         <article key={id} className={styles.order} onClick={() => navigate(`/order/${id}`)}>
-            <p>{product.title}</p>
+            <p>{product.name}</p>
             <p>
                 {new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
@@ -51,11 +51,12 @@ export default function OrderCard({ id, productId, date, status }) {
                 }).format(product.price)}
             </p>
             <p>
-                {new Intl.DateTimeFormat('pt-BR', {
+                {date ? new Intl.DateTimeFormat('pt-BR', {
                     day: '2-digit',
                     month: '2-digit',
-                    year: 'numeric'
-                }).format(new Date(date))}
+                    year: 'numeric',
+                    timeZone: 'UTC'
+                }).format(new Date(date)) : 'Carregando data...'}
             </p>
             <p style={{ color: statusColors[status], fontWeight: 'bold' }}>
                 {statusFormat[status]}

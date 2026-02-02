@@ -58,7 +58,7 @@ export default function Admin() {
     useEffect(() => {
         async function getOrders() {
             try {
-                const response = await fetch(`http://localhost:3000/orders`)
+                const response = await fetch(`http://localhost:3000/orders?_sort=createdAt&_order=desc&_limit=15`)
                 const ordersFound = await response.json()
 
                 setOrders(ordersFound)
@@ -101,7 +101,7 @@ export default function Admin() {
                 <div className={styles.adminContainer}>
                     <main className={styles.ordersList}>
                         {orders.map(order => (
-                            <OrderCard id={order.id} productId={order.productId} date={order.date} status={order.status} />
+                            <OrderCard key={order.id} id={order.id} productId={order.productId} date={order.date} status={order.status} />
                         ))}
                     </main>
                 </div>

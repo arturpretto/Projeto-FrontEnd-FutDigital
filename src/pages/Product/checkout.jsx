@@ -65,6 +65,7 @@ export default function Checkout() {
                             userId: userId,
                             productId: id,
                             date: dateRef.current.value,
+                            createdAt: new Date().toISOString(),
                             status: "pending"
                         })
                     })
