@@ -20,6 +20,6 @@ Mês 3: Painel Administrativo e Deploy <br>
     • Foco: Gestão do negócio. <br>
     • Entregáveis (Git): <br>
     • [ ] Dashboard Admin: Tabela com todos os pedidos recentes. <br>
-    • [ ] Ações do Admin: Botões para "Aprovar" ou "Recusar" pedido (Consumindo PUT). <br>
+    • [✅] Ações do Admin: Botões para "Aprovar" ou "Recusar" pedido (Consumindo PUT). <br>
     • [ ] Dashboard Gráfico: Cards com "Faturamento Total" (vindo da API). <br>
     • [ ] Deploy na Vercel: Projeto publicado conectado ao Backend. 
