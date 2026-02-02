@@ -17,7 +17,7 @@ export default function Admin() {
 
     const logout = () => {
         localStorage.removeItem('userId')
-        navigate('/login')
+        navigate('/')
     }
 
     useEffect(() => {
@@ -37,31 +37,32 @@ export default function Admin() {
     }, [userId])
 
     useEffect(() => {
-        if (userId) {
-            async function getUser() {
-                try {
-                    const response = await fetch(`http://localhost:3000/users/${userId}`);
-                    const userFound = await response.json();
+        if (!userId) return
 
-                    setUser(userFound);
-                } catch (error) {
-                    console.error("Erro ao buscar usuário", error);
-                }
+        async function getUser() {
+            try {
+                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const userFound = await response.json();
+
+                setUser(userFound);
+            } catch (error) {
+                console.error("Erro ao buscar usuário", error);
             }
-
-            getUser()
-        } else {
-            navigate('/login')
         }
+
+        getUser()
     }, [userId])
 
     useEffect(() => {
         async function getOrders() {
+
             try {
-                const response = await fetch(`http://localhost:3000/orders?_sort=createdAt&_order=desc&_limit=15`)
+                const response = await fetch('http://localhost:3000/orders')
                 const ordersFound = await response.json()
 
-                setOrders(ordersFound)
+                const sort = ordersFound.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 15)
+
+                setOrders(sort)
             } catch (error) {
                 console.error(error)
             }

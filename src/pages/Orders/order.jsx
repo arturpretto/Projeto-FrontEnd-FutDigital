@@ -16,6 +16,11 @@ export default function OrderDetails() {
     const { id } = useParams()
     const userId = localStorage.getItem('userId')
 
+    const logout = () => {
+        localStorage.removeItem('userId')
+        navigate('/')
+    }
+
     useEffect(() => {
         localStorage.setItem('mode', isLight ? 'light' : 'dark')
 
@@ -60,14 +65,9 @@ export default function OrderDetails() {
         }
     }, [userId])
 
-    const logout = () => {
-        localStorage.removeItem('userId')
-        navigate('/login')
-    }
-
     const accept = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export default function OrderDetails() {
 
     const deny = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -107,6 +107,30 @@ export default function OrderDetails() {
                 navigate('/admin')
             }
         } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const complete = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: order.userId,
+                    productId: order.productId,
+                    date: order.date,
+                    status: "completed"
+                })
+            });
+
+            if (response.ok) {
+                navigate('/admin')
+            }
+        }
+        catch (error) {
             console.error(error);
         }
     }
@@ -146,6 +170,7 @@ export default function OrderDetails() {
                         (<div className={styles.orderBtn}>
                             <button onClick={accept}>ACEITAR</button>
                             <button onClick={deny}>RECUSAR</button>
+                            {order.status === 'accepted' ? <button onClick={complete}>CONCLUIR</button> : ''}
                         </div>) : ''}
                 </div>
             </div>

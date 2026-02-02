@@ -16,7 +16,7 @@ export default function ProductDetails() {
 
     const logout = () => {
         localStorage.removeItem('userId')
-        navigate('/login')
+        navigate('/')
     }
 
     const { id } = useParams()

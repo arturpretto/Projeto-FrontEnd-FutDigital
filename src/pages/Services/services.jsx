@@ -17,7 +17,7 @@ export default function Services() {
 
     const logout = () => {
         localStorage.removeItem('userId')
-        navigate('/login')
+        navigate('/')
     }
 
     useEffect(() => {
