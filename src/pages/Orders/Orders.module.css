@@ -10,11 +10,25 @@
     width: 70%;
     height: 70dvh;
     display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 30px;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.orderBox {
+    width: 50%;
+    height: 60dvh;
+    display: flex;
+    align-items: center;
     background-color: var(--bg);
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: var(--shadow-l);
     padding: 30px;
+    gap: 30px;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .ordersList {
@@ -35,7 +49,8 @@
     flex-direction: column;
     cursor: pointer;
     box-shadow: var(--shadow-l);
-    height: 40%;
+    background-color: var(--bg);
+    height: 25dvh;
     border-radius: 10px;
     flex: 0 1 100%;
 }
@@ -44,8 +59,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90%;
-    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .details {
@@ -69,16 +84,25 @@
     display: flex;
     width: 100%;
     gap: 16px;
+    justify-content: center;
 }
 
 @media (min-width: 600px) {
     .order {
         flex: 0 1 calc(50% - 15px);
     }
+
+    .ordersTitle {
+        font-size: 1.5em;
+    }
 }
 
 @media (min-width: 1024px) {
     .order {
         flex: 0 1 calc(25% - 15px);
+    }
+
+    .ordersTitle {
+        font-size: 2em;
     }
 }

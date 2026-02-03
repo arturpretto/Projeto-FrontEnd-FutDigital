@@ -3,6 +3,8 @@
   --bg: oklch(0.2 0 264);
   --bg-light: oklch(0.3 0 264);
 
+  --bg-theme: oklch(0.5676 0.182 242.47);
+
   --text-hover: oklch(0 0 264);
   --bg-hover: oklch(0.95 0 264);
 
@@ -18,6 +20,8 @@ body.light {
   --bg-dark: oklch(0.76 0 264);
   --bg: oklch(0.86 0 264);
   --bg-light: oklch(1 0 264);
+
+  --bg-theme: oklch(0.5676 0.182 242.47);
 
   --text-hover: oklch(0.95 0 264);
   --bg-hover: oklch(0.32 0 264);

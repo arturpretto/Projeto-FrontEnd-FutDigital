@@ -33,7 +33,7 @@ export default function Signup() {
             name: nameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
-            role: "client"
+            role: "customer"
         }
 
         async function getUser() {

@@ -70,3 +70,7 @@
     transition: 0.2s;
     box-shadow: var(--shadow-l);
 }
+
+.homeIcon {
+    color: var(--bg-theme);
+}

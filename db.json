@@ -19,7 +19,7 @@
       "name": "Felipe",
       "email": "felipe@teste.com",
       "password": "123",
-      "role": "client"
+      "role": "customer"
     }
   ],
   "products": [
@@ -81,6 +81,13 @@
       "date": "1222-02-04",
       "status": "denied",
       "id": "09ea"
+    },
+    {
+      "userId": "11de",
+      "productId": "1",
+      "date": "3322-12-25",
+      "status": "accepted",
+      "id": "d56a"
     }
   ]
 }
