@@ -1,3 +1,5 @@
+Para o Back-End utilizei um server json hospedado no Render como API direta, com rotas PUT, GET e POST definidas.
+
 PROJETO 2: FRONTEND (Marketplace Web) <br>
 Nome: Plataforma Web de Contratação de Serviços <br>
 Objetivo: Interface onde o cliente navega na vitrine e contrata, e o admin gerencia os pedidos. <br>
@@ -22,4 +24,4 @@ Mês 3: Painel Administrativo e Deploy <br>
     • [✅] Dashboard Admin: Tabela com todos os pedidos recentes. <br>
     • [✅] Ações do Admin: Botões para "Aprovar" ou "Recusar" pedido (Consumindo PUT). <br>
     • [ ] Dashboard Gráfico: Cards com "Faturamento Total" (vindo da API). <br>
-    • [ ] Deploy na Vercel: Projeto publicado conectado ao Backend. 
+    • [✅] Deploy na Vercel: Projeto publicado conectado ao Backend. 
