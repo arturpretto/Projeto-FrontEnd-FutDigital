@@ -1,3 +1,5 @@
+Para o Back-End utilizei um server json hospedado no Render como API direta, com rotas PUT, GET e POST definidas.
+
 PROJETO 2: FRONTEND (Marketplace Web) <br>
 Nome: Plataforma Web de Contratação de Serviços <br>
 Objetivo: Interface onde o cliente navega na vitrine e contrata, e o admin gerencia os pedidos. <br>
