@@ -60,7 +60,11 @@ export default function NavBar() {
                         <ul>
                             {userId ? <li><Link to='/orders' className={styles.ordersLink}>Meus pedidos</Link></li> : ''}
                             <li onClick={() => setLight(!isLight)}>Tema</li>
-                            {user?.role === "admin" && (<li onClick={() => navigate('/admin')}>Dashboard Admin</li>)}
+                            {user?.role === "admin" && (
+                                <>
+                                <li onClick={() => navigate('/admin')}>Dashboard Admin</li>
+                                <li onClick={() => navigate('/dashboard')}>Dashboard Faturamento</li>
+                                </>)}
                             {userId ?
                                 (<li onClick={logout} className={styles.signLink}>Sair</li>) :
                                 (<li><Link to='/login' className={styles.signLink}>Entrar</Link></li>)}

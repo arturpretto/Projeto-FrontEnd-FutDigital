@@ -2,11 +2,10 @@ import styles from './Orders.module.css'
 import { useState, useEffect } from 'react'
 import OrderCard from '../../components/orderCard'
 import NavBar from '../../components/navBar'
+import { Loader2 } from 'lucide-react'
 
 export default function Orders() {
-    const [orders, setOrders] = useState([])
-
-    const userId = localStorage.getItem('userId')
+    const [orders, setOrders] = useState(null)
 
     useEffect(() => {
         async function getOrders() {
@@ -21,19 +20,13 @@ export default function Orders() {
         getOrders()
     }, [])
 
-    useEffect(() => {
-        async function getUser() {
-            try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
-                const userFound = await response.json();
-                setUser(userFound);
-            } catch (error) {
-                console.error("Erro ao buscar usuário", error);
-            }
-        }
-
-        getUser()
-    }, [userId])
+    if (!orders) {
+        return (
+            <article className={styles.order}>
+                <Loader2 className={styles.spanLoading} />
+            </article>
+        )
+    }
 
     return (
         <>

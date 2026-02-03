@@ -9,10 +9,6 @@
     border-radius: 10px;
 }
 
-.profileContainer {
-    position: relative;
-}
-
 .profileIcon {
     cursor: pointer;
     transition: 0.3s;
