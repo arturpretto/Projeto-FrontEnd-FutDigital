@@ -32,7 +32,7 @@ export default function Login() {
         const password = passwordRef.current.value
 
         async function getUser() {
-            const response = await fetch(`http://localhost:3000/users?email=${email}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users?email=${email}`);
             const usersFound = await response.json();
             const credentialsCheck = document.getElementById('credentialsCheck')
 

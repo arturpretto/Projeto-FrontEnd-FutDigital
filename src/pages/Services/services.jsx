@@ -11,7 +11,7 @@ export default function Services() {
 
     useEffect(() => {
         async function getProducts() {
-            const response = await fetch(`http://localhost:3000/products`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/products`);
             const productsFound = await response.json();
 
             setProducts(productsFound)
@@ -23,7 +23,7 @@ export default function Services() {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
                 const userFound = await response.json();
                 setUser(userFound);
             } catch (error) {

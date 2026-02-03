@@ -12,7 +12,7 @@ export default function ProductDetails() {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
                 const userFound = await response.json();
                 setUser(userFound);
             } catch (error) {
@@ -32,7 +32,7 @@ export default function ProductDetails() {
             <div className={styles.bg}>
                 <main className={styles.detailsContainer}>
                     <ProductDetail id={id} />
-                    <Link to={`/checkout/${id}`} className={styles.orderBtn}>CONTRATAR</Link>
+                    <Link to={`/checkout/${id}`} className={styles.orderBtn}>COMPRAR</Link>
                 </main>
             </div>
         </>

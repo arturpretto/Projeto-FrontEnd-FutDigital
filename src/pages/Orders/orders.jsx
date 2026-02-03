@@ -12,7 +12,7 @@ export default function Orders() {
         async function getOrders() {
             const id = localStorage.getItem('userId')
 
-            const response = await fetch(`http://localhost:3000/orders?userId=${id}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders?userId=${id}`)
             const ordersFound = await response.json()
 
             setOrders(ordersFound)
@@ -24,7 +24,7 @@ export default function Orders() {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
                 const userFound = await response.json();
                 setUser(userFound);
             } catch (error) {

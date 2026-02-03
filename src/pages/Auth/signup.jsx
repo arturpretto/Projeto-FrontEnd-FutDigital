@@ -37,7 +37,7 @@ export default function Signup() {
         }
 
         async function getUser() {
-            const responseCheck = await fetch(`http://localhost:3000/users?email=${emailRef.current.value}`)
+            const responseCheck = await fetch(`${import.meta.env.VITE_API_URL}/users?email=${emailRef.current.value}`)
 
             const usersFound = await responseCheck.json();
             const credentialsCheck = document.getElementById('credentialsCheck')
@@ -55,7 +55,7 @@ export default function Signup() {
                     return
                 }
 
-                const response = await fetch(`http://localhost:3000/users`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(credentials)

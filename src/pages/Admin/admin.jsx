@@ -21,7 +21,7 @@ export default function Admin() {
         async function getOrders() {
 
             try {
-                const response = await fetch('http://localhost:3000/orders')
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/orders`)
                 const ordersFound = await response.json()
 
                 const sort = ordersFound.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 15)

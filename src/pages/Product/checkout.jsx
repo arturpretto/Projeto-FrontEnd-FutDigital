@@ -21,7 +21,7 @@ export default function Checkout() {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await fetch(`http://localhost:3000/users/${userId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
                 const userFound = await response.json();
                 setUser(userFound);
             } catch (error) {
@@ -40,7 +40,7 @@ export default function Checkout() {
         if (userId) {
             try {
                 if (dateRef.current && dateRef.current.value) {
-                    const response = await fetch(`http://localhost:3000/orders`, {
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/orders`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -101,7 +101,7 @@ export default function Checkout() {
                             <Check className={styles.spanCheck} />
                         ) : isLoading ? (
                             <Loader2 className={styles.spanLoading} />
-                        ) : 'CONTRATAR'}</button>
+                        ) : 'COMPRAR'}</button>
                     </form>
                 </main>
             </div>

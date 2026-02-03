@@ -22,7 +22,7 @@ export default function OrderDetail({ id, date, status, productId }) {
         if (productId) {
             async function getProduct() {
                 try {
-                    const response = await fetch(`http://localhost:3000/products/${productId}`)
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${productId}`)
                     const productFound = await response.json()
 
                     setProduct(productFound)

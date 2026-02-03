@@ -16,7 +16,7 @@ export default function OrderDetails() {
     useEffect(() => {
         async function getOrder() {
             try {
-                const response = await fetch(`http://localhost:3000/orders/${id}`)
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${id}`)
                 const orderFound = await response.json()
 
                 setOrder(orderFound)
@@ -32,7 +32,7 @@ export default function OrderDetails() {
         if (userId) {
             async function getUser() {
                 try {
-                    const response = await fetch(`http://localhost:3000/users/${userId}`);
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
                     const userFound = await response.json();
 
                     setUser(userFound);
@@ -49,7 +49,7 @@ export default function OrderDetails() {
 
     const accept = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ export default function OrderDetails() {
 
     const deny = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ export default function OrderDetails() {
 
     const complete = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/orders/${order.id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
