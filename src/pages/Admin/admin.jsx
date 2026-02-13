@@ -46,7 +46,7 @@ export default function Admin() {
                     <h1 className={styles.adminTitle}>Dashboard Admin</h1>
                     <main className={styles.ordersList}>
                         {orders.map(order => (
-                            <OrderCard key={order.id} id={order.id} productId={order.productId} date={order.date} status={order.status} />
+                            <OrderCard key={order.id} id={order.id} product={order.product} date={order.date} status={order.status} />
                         ))}
                     </main>
                 </div>

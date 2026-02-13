@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import styles from '../pages/Orders/Orders.module.css'
 
-export default function OrderDetail({ id, date, status, productId }) {
-    const [product, setProduct] = useState({})
+export default function OrderDetail({ id, date, status, product }) {
 
     const statusFormat = {
         pending: "Solicitado",
@@ -17,23 +15,6 @@ export default function OrderDetail({ id, date, status, productId }) {
         denied: "red",
         accepted: "#edeb53"
     }
-
-    useEffect(() => {
-        if (productId) {
-            async function getProduct() {
-                try {
-                    const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${productId}`)
-                    const productFound = await response.json()
-
-                    setProduct(productFound)
-                } catch (error) {
-                    console.error(error)
-                }
-            }
-
-            getProduct()
-        }
-    }, [productId])
 
     return (
         <div className={styles.orderDetails}>

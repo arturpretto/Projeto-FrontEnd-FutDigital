@@ -26,7 +26,7 @@ export default function Graphs() {
                 })
 
                 orders.forEach(order => {
-                    const product = productMap[order.productId]
+                    const product = productMap[order.product.id]
 
                     if (product && order.status === 'completed') {
                         total += product.price

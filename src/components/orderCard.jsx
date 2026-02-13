@@ -1,11 +1,8 @@
 import styles from '../pages/Orders/Orders.module.css'
 import { Loader2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function OrderCard({ id, productId, date, status }) {
-    const [product, setProduct] = useState(null)
-
+export default function OrderCard({ id, product, date, status }) {
     const navigate = useNavigate()
 
     const statusFormat = {
@@ -21,17 +18,6 @@ export default function OrderCard({ id, productId, date, status }) {
         denied: "red",
         accepted: "#a6a43a"
     }
-
-    useEffect(() => {
-        async function getProduct() {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${productId}`)
-            const productFound = await response.json()
-
-            setProduct(productFound)
-        }
-
-        if (productId) getProduct()
-    }, [productId])
 
     if (!product) {
         return (

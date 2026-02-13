@@ -50,14 +50,11 @@ export default function OrderDetails() {
     const accept = async () => {
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    userId: order.userId,
-                    productId: order.productId,
-                    date: order.date,
                     status: "accepted"
                 })
             });
@@ -73,14 +70,11 @@ export default function OrderDetails() {
     const deny = async () => {
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    userId: order.userId,
-                    productId: order.productId,
-                    date: order.date,
                     status: "denied"
                 })
             });
@@ -96,14 +90,11 @@ export default function OrderDetails() {
     const complete = async () => {
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/orders/${order.id}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    userId: order.userId,
-                    productId: order.productId,
-                    date: order.date,
                     status: "completed"
                 })
             });
@@ -125,7 +116,7 @@ export default function OrderDetails() {
 
             <div className={styles.bg}>
                 <div className={styles.orderBox}>
-                    <OrderDetail key={order.id} id={order.id} date={order.date} status={order.status} productId={order.productId} />
+                    <OrderDetail key={order.id} id={order.id} date={order.date} status={order.status} product={order.product} />
 
                     {user?.role === 'admin' ?
                         (<div className={styles.orderBtn}>

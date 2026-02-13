@@ -1,7 +1,7 @@
 import styles from './Product.module.css'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { Loader2, Check } from 'lucide-react'
+import { Loader2, Check, PrinterCheck } from 'lucide-react'
 import ProductDetail from '../../components/productDetail'
 import NavBar from '../../components/navBar'
 
@@ -10,6 +10,7 @@ export default function Checkout() {
     const [isLoading, setLoading] = useState(false)
     const [isVisible, setVisible] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [product, setProduct] = useState({})
 
     const { id } = useParams()
     const userId = localStorage.getItem('userId')
@@ -19,18 +20,19 @@ export default function Checkout() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        async function getUser() {
+        async function getProduct() {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
-                const userFound = await response.json();
-                setUser(userFound);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`);
+                const productFound = await response.json();
+
+                setProduct(productFound);
             } catch (error) {
-                console.error("Erro ao buscar usuário", error);
+                console.error(error);
             }
         }
 
-        getUser()
-    }, [userId])
+        getProduct()
+    }, [])
 
     const handler = async (event) => {
         event.preventDefault()
@@ -45,10 +47,14 @@ export default function Checkout() {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             userId: userId,
-                            productId: id,
                             date: dateRef.current.value,
                             createdAt: new Date().toISOString(),
-                            status: "pending"
+                            status: "pending",
+                            product: {
+                                id: id,
+                                name: product.name,
+                                price: Number(product.price)
+                            }
                         })
                     })
 

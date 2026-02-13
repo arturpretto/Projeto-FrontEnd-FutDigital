@@ -11,10 +11,14 @@ export default function Orders() {
         async function getOrders() {
             const id = localStorage.getItem('userId')
 
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders?userId=${id}`)
-            const ordersFound = await response.json()
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/orders?userId=${id}`)
+                const ordersFound = await response.json()
 
-            setOrders(ordersFound)
+                setOrders(ordersFound)
+            } catch (error) {
+                console.error(error)
+            }
         }
 
         getOrders()
@@ -39,7 +43,7 @@ export default function Orders() {
                     <h1 className={styles.ordersTitle}>Meus Pedidos</h1>
                     <main className={styles.ordersList}>
                         {orders.map(order => (
-                            <OrderCard key={order.id} id={order.id} productId={order.productId} date={order.date} status={order.status} />
+                            <OrderCard key={order.id} id={order.id} product={order.product} date={order.date} status={order.status} />
                         ))}
                     </main>
                 </div>

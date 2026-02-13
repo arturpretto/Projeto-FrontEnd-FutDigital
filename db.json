@@ -46,54 +46,16 @@
   ],
   "orders": [
     {
-      "userId": "1",
-      "productId": "1",
-      "date": "2007-01-25",
-      "status": "completed",
-      "id": "bd9a"
-    },
-    {
-      "userId": "1",
-      "productId": "1",
-      "date": "3222-12-25",
-      "status": "completed",
-      "id": "4fe9"
-    },
-    {
-      "userId": "1",
-      "productId": "3",
-      "date": "1111-11-21",
-      "status": "denied",
-      "id": "8eac"
-    },
-    {
-      "userId": "1",
-      "productId": "4",
-      "date": "2222-03-21",
-      "status": "completed",
-      "id": "2681"
-    },
-    {
-      "userId": "bbeb",
-      "productId": "3",
-      "date": "1222-02-04",
-      "status": "denied",
-      "id": "09ea"
-    },
-    {
+      "id": "aa37",
       "userId": "11de",
-      "productId": "1",
-      "date": "3322-12-25",
-      "status": "accepted",
-      "id": "d56a"
-    },
-    {
-      "id": "f431",
-      "userId": "1",
-      "productId": "3",
-      "date": "3222-02-22",
-      "createdAt": "2026-02-03T12:00:56.366Z",
-      "status": "pending"
+      "date": "2007-01-25",
+      "createdAt": "2026-02-13T15:55:19.230Z",
+      "status": "completed",
+      "product": {
+        "id": "2",
+        "name": "Produto 2",
+        "price": 200
+      }
     }
   ]
 }
