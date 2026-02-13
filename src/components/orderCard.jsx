@@ -19,7 +19,7 @@ export default function OrderCard({ id, productId, date, status }) {
         pending: "orange",
         completed: "green",
         denied: "red",
-        accepted: "yellow"
+        accepted: "#a6a43a"
     }
 
     useEffect(() => {

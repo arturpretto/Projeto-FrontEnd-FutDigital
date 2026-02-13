@@ -15,7 +15,7 @@ export default function OrderDetail({ id, date, status, productId }) {
         pending: "orange",
         completed: "green",
         denied: "red",
-        accepted: "yellow"
+        accepted: "#edeb53"
     }
 
     useEffect(() => {

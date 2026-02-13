@@ -21,7 +21,7 @@ body.light {
   --bg: oklch(0.86 0 264);
   --bg-light: oklch(1 0 264);
 
-  --bg-theme: oklch(0.5676 0.182 242.47);
+  --bg-theme: oklch(0.7549 0.182 242.47);
 
   --text-hover: oklch(0.95 0 264);
   --bg-hover: oklch(0.32 0 264);
