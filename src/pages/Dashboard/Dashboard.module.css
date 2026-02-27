@@ -24,6 +24,20 @@
     animation: spin 1s linear infinite;
 }
 
+.totalEarnings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.earnings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);

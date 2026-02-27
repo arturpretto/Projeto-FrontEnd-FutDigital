@@ -89,3 +89,15 @@
 .visible {
     display: block;
 }
+
+@media (max-width: 600px) {
+    .container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 40%;
+    }
+}

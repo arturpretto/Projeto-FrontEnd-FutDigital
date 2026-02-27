@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from '../pages/Dashboard/Dashboard.module.css'
-import { Loader2 } from 'lucide-react'
+import { Loader2, CircleDollarSign } from 'lucide-react'
 
 export default function Graphs() {
     const [isLoading, setLoading] = useState(true)
@@ -37,6 +37,8 @@ export default function Graphs() {
                 setLoading(false)
             } catch (error) {
                 console.error(error)
+            } finally {
+                setLoading(false)
             }
         }
 
@@ -49,9 +51,9 @@ export default function Graphs() {
                 <Loader2 className={styles.spanLoading} />
             ) : (
                 <div className={styles.dashboardContainer}>
-                    <div>
-                        <h3>
-                            💰 Faturamento Total
+                    <div className={styles.earnings}>
+                        <h3 className={styles.totalEarnings}>
+                            <CircleDollarSign /> Faturamento Total
                         </h3>
                         <p>
                             R$ {faturamentoTotal.toFixed(2)}
