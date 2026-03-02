@@ -1,6 +1,5 @@
 <h1>Marketplace Web</h1>
-Marketplace Web de contratação de serviços desenvolvido em JavaScript, HTML, CSS e Vite (React). Projeto produzido ao longo de 3 meses como atividade principal do curso de Desenvolvimento Front-End.
-
+Marketplace Web de contratação de serviços desenvolvido em JavaScript, HTML, CSS e Vite (React). Projeto produzido ao longo de 3 meses como atividade principal do curso de Desenvolvimento Front-End. <br>
 Front-End hospedado na Vercel. Back-End hospedado no Render como um server json de API direta, rotas PUT, GET e POST definidas.
 
 <h2>Funcionalidades</h2>
