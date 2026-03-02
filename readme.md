@@ -1,6 +1,6 @@
 Marketplace Web de contratação de serviços desenvolvido em JavaScript, HTML, CSS e Vite (React). Projeto produzido ao longo de 3 meses como atividade principal do curso de Desenvolvimento Front-End.
 
-Front-End hospedado na Vercel. Back-End hospedado no Render como um server json como Mock API direta, rotas PUT, GET e POST definidas.
+Front-End hospedado na Vercel. Back-End hospedado no Render como um server json de API direta, rotas PUT, GET e POST definidas.
 
 PROJETO 2: FRONTEND (Marketplace Web) <br>
 Nome: Plataforma Web de Contratação de Serviços <br>
