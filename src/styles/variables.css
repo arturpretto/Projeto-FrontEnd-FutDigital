@@ -4,6 +4,7 @@
   --bg-light: oklch(0.3 0 264);
 
   --bg-theme: oklch(0.5676 0.182 242.47);
+  --bg-theme-dark: oklch(0.44 0.1426 248.4);
 
   --text-hover: oklch(0 0 264);
   --bg-hover: oklch(0.95 0 264);

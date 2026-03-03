@@ -49,7 +49,7 @@
     flex-direction: column;
     cursor: pointer;
     box-shadow: var(--shadow-l);
-    background-color: var(--bg);
+    background-color: var(--bg-theme-dark);
     height: 25dvh;
     border-radius: 10px;
     flex: 0 1 100%;

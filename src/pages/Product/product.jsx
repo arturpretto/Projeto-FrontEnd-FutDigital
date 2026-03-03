@@ -5,23 +5,7 @@ import ProductDetail from '../../components/productDetail'
 import NavBar from '../../components/navBar'
 
 export default function ProductDetails() {
-    const userId = localStorage.getItem('userId')
-
     const { id } = useParams()
-
-    useEffect(() => {
-        async function getUser() {
-            try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${userId}`);
-                const userFound = await response.json();
-                setUser(userFound);
-            } catch (error) {
-                console.error("Erro ao buscar usuário", error);
-            }
-        }
-
-        getUser()
-    }, [userId])
 
     return (
         <>

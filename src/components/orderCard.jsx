@@ -14,9 +14,9 @@ export default function OrderCard({ id, product, date, status }) {
 
     const statusColors = {
         pending: "orange",
-        completed: "green",
-        denied: "red",
-        accepted: "#a6a43a"
+        completed: "#00dc00",
+        denied: "#ff0000",
+        accepted: "#ebe600"
     }
 
     if (!product) {

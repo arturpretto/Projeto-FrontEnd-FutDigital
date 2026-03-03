@@ -74,7 +74,7 @@
       "userId": "bbeb",
       "date": "2007-01-25",
       "createdAt": "2026-02-27T14:40:32.461Z",
-      "status": "pending",
+      "status": "accepted",
       "product": {
         "id": "1",
         "name": "Produto 1",
@@ -86,11 +86,23 @@
       "userId": "bbeb",
       "date": "2007-01-25",
       "createdAt": "2026-02-27T14:50:22.982Z",
-      "status": "pending",
+      "status": "denied",
       "product": {
         "id": "4",
         "name": "Produto 4",
         "price": 400
+      }
+    },
+    {
+      "id": "4a84",
+      "userId": "bbeb",
+      "date": "2007-01-23",
+      "createdAt": "2026-03-03T16:54:38.793Z",
+      "status": "pending",
+      "product": {
+        "id": "3",
+        "name": "Produto 3",
+        "price": 300
       }
     }
   ]
